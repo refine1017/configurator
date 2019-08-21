@@ -1,0 +1,33 @@
+stages:
+  - build_public
+  - build_server
+  - deploy
+
+public:
+  stage: build_public
+  image: node
+  script:
+    - sh ./ci/build_web.sh
+  artifacts:
+    paths:
+      - ./web/dist
+  tags:
+    - docker
+
+server:
+  stage: build_server
+  image: golang
+  script:
+    - sh ./ci/build_server.sh
+  artifacts:
+    paths:
+      - ./package
+  tags:
+    - docker
+
+deploy:
+  stage: deploy
+  script:
+    - sh ./ci/deploy_local.sh
+  tags:
+    - shell
