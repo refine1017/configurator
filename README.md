@@ -18,3 +18,14 @@ go run main.go
 npm install
 npm run dev
 ```
+
+## Screenshot
+
+### Index Page
+![Index](screenshots/index.png)
+
+## Configs
+![Configs](screenshots/configs.png)
+
+## Table Config
+![Table](screenshots/table.png)
